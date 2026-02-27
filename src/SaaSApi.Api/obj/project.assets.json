@@ -33,6 +33,42 @@
             "related": ".pdb;.xml"
           }
         }
+      },
+      "SaaSApi.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "SaaSApi.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SaaSApi.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SaaSApi.Application.dll": {}
+        }
+      },
+      "SaaSApi.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/SaaSApi.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SaaSApi.Domain.dll": {}
+        }
+      },
+      "SaaSApi.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "SaaSApi.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SaaSApi.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SaaSApi.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -67,11 +103,27 @@
         "microsoft.openapi.1.6.17.nupkg.sha512",
         "microsoft.openapi.nuspec"
       ]
+    },
+    "SaaSApi.Application/1.0.0": {
+      "type": "project",
+      "path": "../SaaSApi.Application/SaaSApi.Application.csproj",
+      "msbuildProject": "../SaaSApi.Application/SaaSApi.Application.csproj"
+    },
+    "SaaSApi.Domain/1.0.0": {
+      "type": "project",
+      "path": "../SaaSApi.Domain/SaaSApi.Domain.csproj",
+      "msbuildProject": "../SaaSApi.Domain/SaaSApi.Domain.csproj"
+    },
+    "SaaSApi.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../SaaSApi.Infrastructure/SaaSApi.Infrastructure.csproj",
+      "msbuildProject": "../SaaSApi.Infrastructure/SaaSApi.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "Microsoft.AspNetCore.OpenApi >= 9.0.4"
+      "Microsoft.AspNetCore.OpenApi >= 9.0.4",
+      "SaaSApi.Infrastructure >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -105,7 +157,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\andre\\Documents\\dotnet-clean-architecture-template\\src\\SaaSApi.Infrastructure\\SaaSApi.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\andre\\Documents\\dotnet-clean-architecture-template\\src\\SaaSApi.Infrastructure\\SaaSApi.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -1,11 +1,48 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {}
+    "net9.0": {
+      "SaaSApi.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "SaaSApi.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SaaSApi.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SaaSApi.Application.dll": {}
+        }
+      },
+      "SaaSApi.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/SaaSApi.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SaaSApi.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "SaaSApi.Application/1.0.0": {
+      "type": "project",
+      "path": "../SaaSApi.Application/SaaSApi.Application.csproj",
+      "msbuildProject": "../SaaSApi.Application/SaaSApi.Application.csproj"
+    },
+    "SaaSApi.Domain/1.0.0": {
+      "type": "project",
+      "path": "../SaaSApi.Domain/SaaSApi.Domain.csproj",
+      "msbuildProject": "../SaaSApi.Domain/SaaSApi.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net9.0": []
+    "net9.0": [
+      "SaaSApi.Application >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\andre\\.nuget\\packages\\": {},
@@ -38,7 +75,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\andre\\Documents\\dotnet-clean-architecture-template\\src\\SaaSApi.Application\\SaaSApi.Application.csproj": {
+              "projectPath": "C:\\Users\\andre\\Documents\\dotnet-clean-architecture-template\\src\\SaaSApi.Application\\SaaSApi.Application.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
