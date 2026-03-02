@@ -6,7 +6,7 @@ public class User
     public string Name { get; private set; }
     public string Email { get; private set; }
     public int Age { get; private set; }
-    public Enum Subscription { get; private set; }
+    public Enum? Subscription { get; private set; }
     public DateTime CreateAt { get; private set; }
     public bool IsActive { get; private set; }
     public bool HasASusbcription { get; private set; }
