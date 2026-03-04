@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SaaSApi.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d670ac1a74f9fd37296111124901563a5334dcc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9805c28de29dd5c7cec9b3625443a1e3907979d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("SaaSApi.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SaaSApi.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

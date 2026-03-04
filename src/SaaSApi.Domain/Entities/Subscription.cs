@@ -1,6 +1,6 @@
 ﻿namespace SaaSApi.Domain;
 
-public class Subscription
+public class Subscription : BaseEntity
 {
     public Guid Id { get; private set; }
     public string UserEmail { get; private set; }
