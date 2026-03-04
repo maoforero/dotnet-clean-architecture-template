@@ -1,21 +1,11 @@
 public abstract class BaseEntity
 {
-    public Guid Id { get; private set; }
-    public DateTime CreatedAt { get; private set; }
-    public DateTime UpdatedAt { get; private set; }
+    public Guid Id { get; protected set; } = Guid.NewGuid();
+    public DateTime CreatedAt { get; protected set; } = DateTime.UtcNow;
+    public DateTime? UpdatedAt { get; protected set; } 
 
-
-
-    public BaseEntity(DateTime created)
+    public void MarkUpdated()
     {
-        if (created == DateTime.MinValue) throw new ArgumentException("Create time cannot be null or empty");
-
-        CreatedAt = created;
-    }       
-
-    public void MarkUpdated(DateTime updatedAt)
-    {
-        UpdatedAt = updatedAt;
+        UpdatedAt =  DateTime.UtcNow;
     }
-
 }
