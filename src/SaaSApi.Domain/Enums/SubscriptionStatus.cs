@@ -1,8 +1,9 @@
 public enum SubscriptionStatus
 {
     Active,
-    Disable,
-    Debt,
-    Trial
+    Cancelled,
+    PastDue,
+    Trial,
+    Expired
 
 }
