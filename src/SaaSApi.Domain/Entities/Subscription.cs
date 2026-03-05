@@ -13,22 +13,17 @@ public class Subscription : BaseEntity
     {
         var subscription = new Subscription();
         subscription.UserId = userId;
+        subscription.PlanId = planId;
 
-        switch (billingCycle)
+
+        subscription.EndDate = billingCycle switch
         {
-            case BillingCycle.Monthly:
-                subscription.EndDate = DateTime.UtcNow.AddMonths(1);
-                break;
-            case BillingCycle.Quarter:
-                subscription.EndDate = DateTime.UtcNow.AddMonths(3);
-                break;
-            case BillingCycle.Semester:
-                subscription.EndDate = DateTime.UtcNow.AddMonths(6);
-                break;
-            case BillingCycle.Annual:
-                subscription.EndDate = DateTime.UtcNow.AddYears(1);
-                break;
-        }
+            BillingCycle.Monthly => DateTime.UtcNow.AddMonths(1),
+            BillingCycle.Quarter => DateTime.UtcNow.AddMonths(3),
+            BillingCycle.Semester => DateTime.UtcNow.AddMonths(6),
+            BillingCycle.Annual => DateTime.UtcNow.AddYears(1),
+            _ =>  throw new ArgumentException("Invalid billing cycle")
+        };
 
         return subscription;
     }
