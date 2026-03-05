@@ -9,6 +9,8 @@ public class Subscription : BaseEntity
     public DateTime StartDate { get; private set; } = DateTime.UtcNow;
     public DateTime EndDate { get; private set; }
 
+    private Subscription(){ }
+
     public static Subscription Create(Guid planId, Guid userId, BillingCycle billingCycle)
     {
         var subscription = new Subscription();
