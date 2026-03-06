@@ -1,27 +1,28 @@
 using System.Data;
 
-public class User
-{
-    public int Id { get; private set; }
-    public string Name { get; private set; }
+public class User : BaseEntity{
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
     public string Email { get; private set; }
-    public int Age { get; private set; }
-    public Enum? Subscription { get; private set; }
-    public DateTime CreateAt { get; private set; }
-    public bool IsActive { get; private set; }
-    public bool HasASusbcription { get; private set; }
+    public Guid? ActiveSubscriptionId { get; private set;}
 
-    public User(string name, string email, int age)
+    private User()
     {
-        Name = name;
-        Email = email;
-        Age = age;
+        
     }
 
-    public bool IsValid()
+    public static User Create(string firstName, string lastName, string email)
     {
-        return Age > 18 ? true : false;
+        if(string.IsNullOrWhiteSpace(firstName)) throw new ArgumentException("First name must have valid values.");
+        if(string.IsNullOrWhiteSpace(lastName)) throw new ArgumentException("Last name must have valid values.");
+        if(string.IsNullOrWhiteSpace(email) || !email.Contains("@")) throw new ArgumentException("Email must have valid values.");
+
+        var user = new User();
+
+        user.FirstName = firstName;
+        user.LastName = lastName;
+        user.Email = email;
+
+        return user;
     }
-
-
 }
