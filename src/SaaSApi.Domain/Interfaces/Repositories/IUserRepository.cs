@@ -1,4 +1,4 @@
-public interface IUSerRepository
+public interface IUSerRepository : IRepository<User>
 {
     
 }

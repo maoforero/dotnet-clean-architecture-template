@@ -1,4 +1,4 @@
-public interface IPlanRepository
+public interface IPlanRepository : IRepository<Plan>
 {
     
 }
