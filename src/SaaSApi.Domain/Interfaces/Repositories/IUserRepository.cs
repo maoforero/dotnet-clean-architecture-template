@@ -1,4 +1,4 @@
-public interface IUSerRepository : IRepository<User>
+public interface IUserRepository : IRepository<User>
 {
-    
+    Task<User> GetWithSubscriptionAsync(string email);
 }

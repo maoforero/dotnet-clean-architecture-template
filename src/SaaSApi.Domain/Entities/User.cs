@@ -1,4 +1,3 @@
-using System.Data;
 
 public class User : BaseEntity{
     public string FirstName { get; private set; }

@@ -1,6 +1,6 @@
 using SaaSApi.Domain;
 
-public interface ISubscriptionrepository : IRepository<Subscription>
+public interface ISubscriptionRepository : IRepository<Subscription>
 {
-    
+    Task<Subscription?> GetActiveByUserIdAsync (Guid userId);
 }
