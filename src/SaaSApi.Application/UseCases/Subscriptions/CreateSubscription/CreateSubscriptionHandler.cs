@@ -1,3 +1,5 @@
+using SaaSApi.Domain;
+
 public class CreateSubscriptionHandler
 {
     private readonly IPlanRepository _planRepository;
@@ -16,8 +18,23 @@ public class CreateSubscriptionHandler
         _userRepository = userRepository;    
     }
 
-    public Task<CreateSubscriptionResult> HandleAsync(CreateSubscriptionCommand command)
+    public async Task<CreateSubscriptionResult> HandleAsync(CreateSubscriptionCommand command)
     {
+        var userid = await _userRepository.GetByIdAsync(command.UserId);
+        if(userid == null) throw new ArgumentException("User Id must not be null");
 
+        var planId = await _planRepository.GetByIdAsync(command.PlanId);
+        if(planId == null) throw new ArgumentException("Plan Id must not be null");
+
+        var subscription =  Subscription.Create(command.PlanId, command.UserId, command.BillingCycle);
+
+        await _subcriptionRepository.AddAsync(subscription);
+
+       return new CreateSubscriptionResult
+       {
+            SubscriptionId = subscription.Id,
+            Status = subscription.Status,
+            EndDate = subscription.EndDate
+       };
     }
 }
