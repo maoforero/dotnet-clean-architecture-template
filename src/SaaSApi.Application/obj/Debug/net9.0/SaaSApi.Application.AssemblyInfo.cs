@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SaaSApi.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f058ee9b49012b3fa767aa54200e65123ad025f6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e0a4dfb3a501fd7e519af94b6c1b92f1402e163")]
 [assembly: System.Reflection.AssemblyProductAttribute("SaaSApi.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SaaSApi.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
