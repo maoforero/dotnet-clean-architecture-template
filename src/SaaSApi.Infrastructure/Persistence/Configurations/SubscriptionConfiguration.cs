@@ -10,21 +10,29 @@ public class SubscriptionConfiguration : IEntityTypeConfiguration<Subscription>
 
 
         builder.Property(s => s.PlanId)
-        .IsRequired();
+            .HasColumnName("plan_id")
+            .IsRequired();
 
         builder.Property(s => s.UserId)
-        .IsRequired();
+            .HasColumnName("user_id")
+            .IsRequired();
 
         builder.Property(s => s.Status)
-        .IsRequired();
+            .HasColumnName("status")
+            .HasConversion<string>()
+            .IsRequired();
 
         builder.Property(s => s.BillingCycle)
-        .IsRequired();
+            .HasColumnName("billing_cycle")
+            .HasConversion<string>()
+            .IsRequired();
 
         builder.Property(s => s.StartDate)
-        .IsRequired();
+            .HasColumnName("start_date")
+            .IsRequired();
 
-        builder.HasIndex(s => s.PlanId).IsUnique();
-        builder.HasIndex(s => s.UserId).IsUnique();
+        builder.Property(s => s.EndDate)
+            .HasColumnName("end_date")
+            .IsRequired();
     }
 }
