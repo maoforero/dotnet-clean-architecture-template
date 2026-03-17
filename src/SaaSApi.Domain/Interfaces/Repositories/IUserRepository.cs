@@ -1,4 +1,4 @@
 public interface IUserRepository : IRepository<User>
 {
-    Task<User> GetWithSubscriptionAsync(string email);
+    Task<User> GetWithSubscriptionAsync(string email, CancellationToken ct);
 }

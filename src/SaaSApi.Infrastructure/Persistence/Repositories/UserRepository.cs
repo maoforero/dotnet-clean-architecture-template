@@ -1,33 +1,45 @@
 
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+
 public class UserRepository : IUserRepository
 {
-    public Task AddAsync(User entity, CancellationToken ct = default)
+    private readonly SaaSDbContext _context;
+
+    public UserRepository(SaaSDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+    
+    public async Task AddAsync(User entity, CancellationToken ct = default)
+    {
+       await _context.Users.AddAsync(entity, ct);
     }
 
-    public Task DeleteAsync(Guid id, CancellationToken ct = default)
+    public async Task DeleteAsync(Guid id, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        var user = await GetByIdAsync(id, ct);
+        if(user != null) _context.Users.Remove(user);
     }
 
-    public Task<IEnumerable<User>> GetAllAsync(CancellationToken ct = default)
+    public async Task<IEnumerable<User>> GetAllAsync(CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        return await _context.Users.ToListAsync();
     }
 
-    public Task<User> GetByIdAsync(Guid id, CancellationToken ct = default)
+    public async Task<User?> GetByIdAsync(Guid id, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        return await _context.Users.FindAsync(id, ct);
     }
 
-    public Task<User> GetWithSubscriptionAsync(string email)
+    public async Task<User> GetWithSubscriptionAsync(string email, CancellationToken ct)
     {
-        throw new NotImplementedException();
+        return await _context.Users.FirstOrDefaultAsync(u => u.Email == email, ct);
     }
 
     public Task UpdateAsync(User entity, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        _context.Users.Update(entity);
+        return Task.CompletedTask;
     }
 }

@@ -21,10 +21,10 @@ public class CreateSubscriptionHandler
     public async Task<CreateSubscriptionResult> HandleAsync(CreateSubscriptionCommand command)
     {
         var userid = await _userRepository.GetByIdAsync(command.UserId);
-        if(userid == null) throw new ArgumentException("User Id must not be null");
+        if(userid == null) throw new ArgumentException("User Id is null");
 
         var planId = await _planRepository.GetByIdAsync(command.PlanId);
-        if(planId == null) throw new ArgumentException("Plan Id must not be null");
+        if(planId == null) throw new ArgumentException("Plan Id must is null");
 
         var subscription =  Subscription.Create(command.PlanId, command.UserId, command.BillingCycle);
 
