@@ -5,7 +5,11 @@ public class PlanConfigurations : IEntityTypeConfiguration<Plan>
 {
     public void Configure(EntityTypeBuilder<Plan> builder)
     {
-        builder.ToTable("plansgit a");
+        builder.ToTable("plans");
+
+        builder.Property(p => p.Id)
+            .HasColumnName("id");
+
 
         builder.Property(p => p.Name)
             .HasMaxLength(100)
@@ -16,12 +20,15 @@ public class PlanConfigurations : IEntityTypeConfiguration<Plan>
             .HasMaxLength(256)
             .HasColumnName("description");
 
-        builder.Property(p => p.Price)
-            .HasColumnName("price")
-            .IsRequired();
+        builder.OwnsOne(p => p.Price, money =>
+        {
+            money.Property(m => m.Amount).HasColumnName("price_amount");
+            money.Property(m => m.Currency).HasColumnName("price_currency");
+        });
 
         builder.Property(p => p.BillingCycle)
             .HasColumnName("billing_cycle")
+            .HasConversion<string>()
             .IsRequired();
 
         builder.Property(p => p.IsActive)
