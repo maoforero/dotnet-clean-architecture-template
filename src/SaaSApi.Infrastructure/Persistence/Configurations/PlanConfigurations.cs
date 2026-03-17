@@ -10,7 +10,6 @@ public class PlanConfigurations : IEntityTypeConfiguration<Plan>
         builder.Property(p => p.Id)
             .HasColumnName("id");
 
-
         builder.Property(p => p.Name)
             .HasMaxLength(100)
             .HasColumnName("name")
