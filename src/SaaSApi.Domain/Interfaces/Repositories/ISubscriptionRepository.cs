@@ -2,5 +2,5 @@ using SaaSApi.Domain;
 
 public interface ISubscriptionRepository : IRepository<Subscription>
 {
-    Task<Subscription?> GetActiveByUserIdAsync (Guid userId);
+    Task<Subscription?> GetActiveByUserIdAsync(Guid userId, CancellationToken ct = default);
 }
