@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+using Microsoft.EntityFrameworkCore;
 using SaaSApi.Domain;
 
 public class SubscriptionRepository : ISubscriptionRepository
@@ -10,33 +12,35 @@ public class SubscriptionRepository : ISubscriptionRepository
         _context = context;
     }
 
-    public Task AddAsync(Subscription entity, CancellationToken ct = default)
+    public async Task AddAsync(Subscription entity, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        await _context.AddAsync(entity, ct);
     }
 
-    public Task DeleteAsync(Guid id, CancellationToken ct = default)
+    public async Task DeleteAsync(Guid id, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        var sub = await GetByIdAsync(id, ct);
+        if(sub != null) _context.Subscriptions.Remove(sub);
     }
 
-    public Task<Subscription?> GetActiveByUserIdAsync(Guid userId)
+    public async Task<Subscription?> GetActiveByUserIdAsync(Guid userId, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        return await _context.Subscriptions.FindAsync(userId, ct)
     }
 
-    public Task<IEnumerable<Subscription>> GetAllAsync(CancellationToken ct = default)
+    public async Task<IEnumerable<Subscription>> GetAllAsync(CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        return await _context.Subscriptions.ToListAsync();
     }
 
-    public Task<Subscription> GetByIdAsync(Guid id, CancellationToken ct = default)
+    public async Task<Subscription> GetByIdAsync(Guid id, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        return await _context.Subscriptions.FindAsync(id, ct);
     }
 
     public Task UpdateAsync(Subscription entity, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        _context.Subscriptions.Update(entity);
+        return Task.CompletedTask;
     }
 }
