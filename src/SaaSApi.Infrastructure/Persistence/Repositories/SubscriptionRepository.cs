@@ -24,7 +24,7 @@ public class SubscriptionRepository : ISubscriptionRepository
 
     public async Task<Subscription?> GetActiveByUserIdAsync(Guid userId, CancellationToken ct = default)
     {
-        return await _context.Subscriptions.FindAsync(userId, ct)
+        return await _context.Subscriptions.FirstOrDefaultAsync(u => u.UserId == userId && u.Status == SubscriptionStatus.Active, ct);
     }
 
     public async Task<IEnumerable<Subscription>> GetAllAsync(CancellationToken ct = default)
@@ -32,7 +32,7 @@ public class SubscriptionRepository : ISubscriptionRepository
         return await _context.Subscriptions.ToListAsync();
     }
 
-    public async Task<Subscription> GetByIdAsync(Guid id, CancellationToken ct = default)
+    public async Task<Subscription?> GetByIdAsync(Guid id, CancellationToken ct = default)
     {
         return await _context.Subscriptions.FindAsync(id, ct);
     }

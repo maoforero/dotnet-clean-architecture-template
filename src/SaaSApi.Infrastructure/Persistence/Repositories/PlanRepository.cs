@@ -26,7 +26,7 @@ public class PlanRepository : IPlanRepository
         return await _context.Plans.ToListAsync();
     }
 
-    public async Task<Plan> GetByIdAsync(Guid id, CancellationToken ct = default)
+    public async Task<Plan?> GetByIdAsync(Guid id, CancellationToken ct = default)
     {
         return await _context.Plans.FindAsync(id, ct);
     }
