@@ -1,4 +1,6 @@
 
+using Microsoft.EntityFrameworkCore;
+
 public class PlanRepository : IPlanRepository
 {
     private readonly SaaSDbContext _context;
@@ -8,33 +10,35 @@ public class PlanRepository : IPlanRepository
         _context = context;
     }
 
-    public Task AddAsync(Plan entity, CancellationToken ct = default)
+    public async Task AddAsync(Plan entity, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        await _context.Plans.AddAsync(entity, ct);
     }
 
-    public Task DeleteAsync(Guid id, CancellationToken ct = default)
+    public async Task DeleteAsync(Guid id, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        var plan = await GetByIdAsync(id, ct);
+        if(plan != null) _context.Plans.Remove(plan);
     }
 
-    public Task<IEnumerable<Plan>> GetAllAsync(CancellationToken ct = default)
+    public async Task<IEnumerable<Plan>> GetAllAsync(CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        return await _context.Plans.ToListAsync();
     }
 
-    public Task<Plan> GetByIdAsync(Guid id, CancellationToken ct = default)
+    public async Task<Plan> GetByIdAsync(Guid id, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        return await _context.Plans.FindAsync(id, ct);
     }
 
-    public Task<Plan?> GetWithNameAsync(string name)
+    public async Task<Plan?> GetWithNameAsync(string name, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        return await _context.Plans.FirstOrDefaultAsync(p => p.Name == name, ct);
     }
 
     public Task UpdateAsync(Plan entity, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        _context.Plans.Update(entity);
+        return Task.CompletedTask;
     }
 }
