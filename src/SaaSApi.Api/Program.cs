@@ -1,13 +1,12 @@
 using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("sc_local");
 
-
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<SaaSDbcontext>(options => 
-    options.UseNpgsql(connectionString));
+    options.UseNpgsql());
+
+
 
 var app = builder.Build();
 
