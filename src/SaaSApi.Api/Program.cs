@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("sc_local");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<SaaSDbcontext>(options => 
