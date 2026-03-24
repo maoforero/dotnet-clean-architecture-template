@@ -6,7 +6,9 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<SaaSDbContext >(options => 
     options.UseNpgsql());
 
-
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<CreateSubscriptionHandler>();
 
 var app = builder.Build();
 
