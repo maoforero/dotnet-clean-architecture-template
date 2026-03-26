@@ -23,5 +23,4 @@ public class SubscriptionController: ControllerBase
         var result = await _subscriptionHandler.HandleAsync(susCommand, ct);
         return CreatedAtAction(nameof(Create), result);
     } 
-
 }
