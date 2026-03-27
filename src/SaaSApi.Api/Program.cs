@@ -20,6 +20,7 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
 var app = builder.Build();
+app.UseMiddleware<ExceptionMiddleware>();
 
 
 // Configure the HTTP request pipeline.
