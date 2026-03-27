@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-public class PlanConfigurations : IEntityTypeConfiguration<Plan>
+public class PlanConfigurations : BaseEntityConfiguration<Plan>
 {
-    public void Configure(EntityTypeBuilder<Plan> builder)
+    public override void Configure(EntityTypeBuilder<Plan> builder)
     {
         builder.ToTable("plans");
 
@@ -29,12 +29,6 @@ public class PlanConfigurations : IEntityTypeConfiguration<Plan>
             .HasColumnName("billing_cycle")
             .HasConversion<string>()
             .IsRequired();
-
-        builder.Property(p => p.CreatedAt)
-            .HasColumnName("created_at");
-
-        builder.Property(p => p.UpdatedAt)
-            .HasColumnName("updated_at");
 
         builder.Property(p => p.IsActive)
             .HasColumnName("is_active")

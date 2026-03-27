@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SaaSApi.Domain;
 
-public class SubscriptionConfiguration : IEntityTypeConfiguration<Subscription>
+public class SubscriptionConfiguration : BaseEntityConfiguration<Subscription>
 {
-    public void Configure(EntityTypeBuilder<Subscription> builder)
+    public override void Configure(EntityTypeBuilder<Subscription> builder)
     {
         builder.ToTable("subscriptions");
 
