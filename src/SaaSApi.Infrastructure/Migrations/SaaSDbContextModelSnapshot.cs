@@ -115,8 +115,7 @@ namespace SaaSApi.Infrastructure.Migrations
                         .HasColumnName("active_subscription_id");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -141,8 +140,7 @@ namespace SaaSApi.Infrastructure.Migrations
                         .HasColumnName("last_name");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 

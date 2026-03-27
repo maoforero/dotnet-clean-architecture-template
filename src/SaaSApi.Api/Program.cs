@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
+
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -12,6 +14,10 @@ builder.Services.AddScoped<IPlanRepository, PlanRepository>();
 builder.Services.AddScoped<ISubscriptionRepository,SubscriptionRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<CreateSubscriptionHandler>();
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options => 
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
 var app = builder.Build();
 

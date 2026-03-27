@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace SaaSApi.Infrastructure.Migrations
 {
     [DbContext(typeof(SaaSDbContext))]
-    [Migration("20260327210520_InitialCreate")]
+    [Migration("20260327213401_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -118,8 +118,7 @@ namespace SaaSApi.Infrastructure.Migrations
                         .HasColumnName("active_subscription_id");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -144,8 +143,7 @@ namespace SaaSApi.Infrastructure.Migrations
                         .HasColumnName("last_name");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
