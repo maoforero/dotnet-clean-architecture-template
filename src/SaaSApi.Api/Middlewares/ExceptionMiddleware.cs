@@ -32,9 +32,14 @@ public class ExceptionMiddleware
                 TimeStamp = DateTime.UtcNow
             };
 
+            var options = new JsonSerializerOptions 
+            { 
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase 
+            };
+
             context.Response.StatusCode = statusCode;
             context.Response.ContentType = "application/json";
-            await context.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
+            await context.Response.WriteAsync(JsonSerializer.Serialize(errorResponse, options));
         }
     }
 }
