@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 public class ExceptionMiddleware
 {
     private readonly RequestDelegate _next;
@@ -15,7 +17,24 @@ public class ExceptionMiddleware
         }
         catch (Exception ex)
         {
-            
+            var (statusCode, descriptiuon) = ex switch 
+            {
+                ArgumentException e     => (400, e.Message),
+                KeyNotFoundException e  => (404, e.Message),
+                IOException e           => (503, "Service temporarily unavailable"),
+                _                       => (500, "An unexpected error ocurred")
+            };
+
+            var errorResponse = new ErrorResponse
+            {
+                Status = statusCode,
+                Description = descriptiuon,
+                TimeStamp = DateTime.UtcNow
+            };
+
+            context.Response.StatusCode = statusCode;
+            context.Response.ContentType = "application/json";
+            await context.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
         }
     }
 }
