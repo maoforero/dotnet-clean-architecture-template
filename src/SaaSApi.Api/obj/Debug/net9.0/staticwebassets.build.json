@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "DKlc0UJb3mP96UEPDP99MFL+LGFRhED83YGeI+tChSA=",
+  "Source": "SaaSApi.Api",
+  "BasePath": "_content/SaaSApi.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

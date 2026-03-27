@@ -1,0 +1,12 @@
+C:\Users\andre\Documents\dotnet-clean-architecture-template\src\SaaSApi.Domain\bin\Debug\net9.0\SaaSApi.Domain.deps.json
+C:\Users\andre\Documents\dotnet-clean-architecture-template\src\SaaSApi.Domain\bin\Debug\net9.0\SaaSApi.Domain.dll
+C:\Users\andre\Documents\dotnet-clean-architecture-template\src\SaaSApi.Domain\bin\Debug\net9.0\SaaSApi.Domain.pdb
+C:\Users\andre\Documents\dotnet-clean-architecture-template\src\SaaSApi.Domain\obj\Debug\net9.0\SaaSApi.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andre\Documents\dotnet-clean-architecture-template\src\SaaSApi.Domain\obj\Debug\net9.0\SaaSApi.Domain.AssemblyInfoInputs.cache
+C:\Users\andre\Documents\dotnet-clean-architecture-template\src\SaaSApi.Domain\obj\Debug\net9.0\SaaSApi.Domain.AssemblyInfo.cs
+C:\Users\andre\Documents\dotnet-clean-architecture-template\src\SaaSApi.Domain\obj\Debug\net9.0\SaaSApi.Domain.csproj.CoreCompileInputs.cache
+C:\Users\andre\Documents\dotnet-clean-architecture-template\src\SaaSApi.Domain\obj\Debug\net9.0\SaaSApi.Domain.sourcelink.json
+C:\Users\andre\Documents\dotnet-clean-architecture-template\src\SaaSApi.Domain\obj\Debug\net9.0\SaaSApi.Domain.dll
+C:\Users\andre\Documents\dotnet-clean-architecture-template\src\SaaSApi.Domain\obj\Debug\net9.0\refint\SaaSApi.Domain.dll
+C:\Users\andre\Documents\dotnet-clean-architecture-template\src\SaaSApi.Domain\obj\Debug\net9.0\SaaSApi.Domain.pdb
+C:\Users\andre\Documents\dotnet-clean-architecture-template\src\SaaSApi.Domain\obj\Debug\net9.0\ref\SaaSApi.Domain.dll
