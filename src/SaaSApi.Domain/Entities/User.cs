@@ -4,6 +4,7 @@ public class User : BaseEntity{
     public string LastName { get; private set; }
     public string Email { get; private set; }
     public Guid? ActiveSubscriptionId { get; private set;}
+    public bool IsActive { get; private set; } = true;
 
     private User()
     {

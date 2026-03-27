@@ -30,6 +30,12 @@ public class PlanConfigurations : IEntityTypeConfiguration<Plan>
             .HasConversion<string>()
             .IsRequired();
 
+        builder.Property(p => p.CreatedAt)
+            .HasColumnName("created_at");
+
+        builder.Property(p => p.UpdatedAt)
+            .HasColumnName("updated_at");
+
         builder.Property(p => p.IsActive)
             .HasColumnName("is_active")
             .IsRequired();

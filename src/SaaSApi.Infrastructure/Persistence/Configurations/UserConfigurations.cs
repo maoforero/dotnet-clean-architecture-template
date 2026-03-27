@@ -31,5 +31,14 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.Property(u => u.ActiveSubscriptionId)
             .HasColumnName("active_subscription_id");
+
+        builder.Property(u => u.CreatedAt)
+            .HasColumnName("created_at");
+
+        builder.Property(u => u.UpdatedAt)
+            .HasColumnName("updated_at");
+
+        builder.Property(u => u.IsActive)
+            .HasColumnName("is_active");
     }
 }
