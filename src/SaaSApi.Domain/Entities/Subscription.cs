@@ -29,4 +29,12 @@ public class Subscription : BaseEntity
 
         return subscription;
     }
+
+    public async Task Cancel()
+    {
+        if(Status == SubscriptionStatus.Cancelled || Status == SubscriptionStatus.Expired)
+            throw new InvalidOperationException("Status is already cancelled or expired");
+
+        Status == SubscriptionStatus.Cancelled;
+    }
 }
