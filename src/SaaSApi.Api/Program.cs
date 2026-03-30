@@ -16,6 +16,7 @@ builder.Services.AddScoped<IPlanRepository, PlanRepository>();
 builder.Services.AddScoped<ISubscriptionRepository,SubscriptionRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<CreateSubscriptionHandler>();
+builder.Services.AddScoped<CancelSubscriptionHandler>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
