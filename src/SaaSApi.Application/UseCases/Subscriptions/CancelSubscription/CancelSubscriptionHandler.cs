@@ -18,8 +18,8 @@ public class CancelSubscriptionHandler
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<CancelSubscriptionResult> HandleAsync()
+    public async Task<CancelSubscriptionResult> HandleAsync(CancelSubscriptionCommand command, CancellationToken ct)
     {
-        
+        var userId = await _userRepository.GetByIdAsync(command.PlanId)
     }
 }

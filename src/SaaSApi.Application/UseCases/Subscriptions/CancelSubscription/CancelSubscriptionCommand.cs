@@ -1,4 +1,4 @@
 public record CancelSubscriptionCommand
 {
-    public Guid PlanId { get; init; }
+    public Guid UserId { get; init; }
 }
