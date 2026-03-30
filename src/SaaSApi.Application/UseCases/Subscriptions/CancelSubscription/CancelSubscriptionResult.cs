@@ -1,4 +1,4 @@
-public class CancelSubscriptionResult
+public record CancelSubscriptionResult
 {
     public Guid SubscriptionId { get; init; }
     public SubscriptionStatus Status { get; init; }
