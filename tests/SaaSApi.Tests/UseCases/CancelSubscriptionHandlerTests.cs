@@ -26,4 +26,23 @@ public class CancelSubscriptionHandlerTest
         await Assert.ThrowsAsync<ArgumentException>(() => 
             handler.HandleAsync(command, CancellationToken.None));
     }
+
+    [Fact]
+    public async Task HandleAsync_WhenSubscriptionNotFound_ThrowsArgumentException()
+    {
+        // Arrange
+        var iSubscriptionRepository = new Mock<ISubscriptionRepository>();
+        var iUserRepository = new Mock<IUserRepository>();
+        var iUnitOfWork = new Mock<IUnitOfWork>();
+
+        var handlerSubs = new CancelSubscriptionHandler(
+            iSubscriptionRepository.Object,
+            iUserRepository.Object,
+            iUnitOfWork.Object
+        );
+
+        var user = User.Create("John", "Doe", "JohnDoe@Email.com");
+        
+    }
+
 }
