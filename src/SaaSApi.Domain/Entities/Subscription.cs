@@ -40,10 +40,9 @@ public class Subscription : BaseEntity
 
     public void Upgrade(Plan plan)
     {
-        if(){}
-
-        var plan2 = Plan.Create(plan.Name, plan.Description, plan.Money, plan.BillingCycle);
-
-
+        // Recibimos plan
+        
+        // Debemos cambiar el planId
+        var newPlan = Plan.Create(plan.Name, plan.Description, plan.Price, plan.BillingCycle);
     }
 }
