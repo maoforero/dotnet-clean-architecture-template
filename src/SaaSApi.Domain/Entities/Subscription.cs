@@ -1,4 +1,6 @@
-﻿namespace SaaSApi.Domain;
+﻿using System.Diagnostics;
+
+namespace SaaSApi.Domain;
 
 public class Subscription : BaseEntity
 {
@@ -40,9 +42,9 @@ public class Subscription : BaseEntity
 
     public void Upgrade(Plan plan)
     {
-        // Recibimos plan
-        
-        // Debemos cambiar el planId
-        var newPlan = Plan.Create(plan.Name, plan.Description, plan.Price, plan.BillingCycle);
+        if(Status == SubscriptionStatus.Cancelled || Status == SubscriptionStatus.Expired || Status == SubscriptionStatus.PastDue)
+            throw new InvalidOperationException("Status is not valid to upgrade.");
+
+        PlanId = plan.Id;
     }
 }
