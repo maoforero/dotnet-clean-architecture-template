@@ -1,4 +1,6 @@
 using Moq;
+using SaaSApi.Domain;
+using Xunit.Sdk;
 
 public class CancelSubscriptionHandlerTest
 {
@@ -42,6 +44,26 @@ public class CancelSubscriptionHandlerTest
         );
 
         var user = User.Create("John", "Doe", "JohnDoe@Email.com");
+
+        iUserRepository
+            .Setup(u => u.GetByIdAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync((user));
+
+        iSubscriptionRepository
+            .Setup(s => s.GetActiveByUserIdAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync((Subscription?)null);
+
+        var command = new CancelSubscriptionCommand {UserId = Guid.NewGuid()};
+
+        // Act & Assert
+        await Assert.ThrowsAsync<ArgumentException>(() =>
+            handlerSubs.HandleAsync(command, CancellationToken.None));            
+    }
+
+    
+    [Fact]
+    public async Task HandleAsync_WhenSubscriptionAlreadyCancelled_ThrowsInvalidOperationException()
+    {
         
     }
 
