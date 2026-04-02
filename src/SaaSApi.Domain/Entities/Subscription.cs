@@ -37,4 +37,13 @@ public class Subscription : BaseEntity
 
         Status = SubscriptionStatus.Cancelled;
     }
+
+    public void Upgrade(Plan plan)
+    {
+        if(){}
+
+        var plan2 = Plan.Create(plan.Name, plan.Description, plan.Money, plan.BillingCycle);
+
+
+    }
 }
